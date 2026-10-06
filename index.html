@@ -5,94 +5,276 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parisino | Estilo, Moda y Hogar</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        :root {
+            --primary: #2c2c2c;
+            --secondary: #dcd0c0;
+            --background: #fdfcf9;
+            --text-color: #333333;
+            --footer-bg: #1a1a1a;
+            --footer-text: #cccccc;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: #f7f5f0; /* Color aproximado del fondo de la imagen */
-            color: #333;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--background);
+            color: var(--text-color);
+            line-height: 1.6;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
+
+        /* Navegación */
+        nav {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #8c7e6c;
+        }
+
+        /* Header / Banner */
         header {
-            text-align: center;
-            padding: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: #eee9e0;
         }
-        header img {
-            max-width: 250px;
+
+        .banner-container {
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .banner-container img {
+            width: 100%;
             height: auto;
+            display: block;
         }
+
+        /* Secciones Principales */
         main {
             flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
-        .banner {
-            width: 100%;
-            max-width: 1000px;
-            margin-bottom: 40px;
-        }
-        .banner img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .content {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
             text-align: center;
-            max-width: 800px;
+        }
+
+        main h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        main p.subtitle {
+            font-size: 1.1em;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+        }
+
+        /* Grid de Categorías Simuladas */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .category-card {
             background: #fff;
             padding: 40px;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid #eaeaea;
+            transition: transform 0.3s;
         }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        /* Footer */
         footer {
-            background-color: #222;
-            color: #ccc;
-            padding: 40px 20px;
-            text-align: center;
-            font-size: 0.9em;
-            line-height: 1.6;
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+            padding: 50px 20px;
         }
-        .legal-info {
-            max-width: 600px;
+
+        .footer-content {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
-            border-top: 1px solid #444;
-            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
         }
-        .legal-info strong {
+
+        .footer-section h4 {
             color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            letter-spacing: 1px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: var(--footer-text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #fff;
+        }
+
+        .legal-footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.85em;
+        }
+
+        .legal-footer strong {
+            color: #fff;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
 
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="logo parisino.Png" alt="Parisino Logo"></a>
+        </div>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="#colecciones">Colecciones</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="mailto:soporte@parisino.online">Contacto</a></li>
+        </ul>
+    </nav>
+
     <header>
-        <img src="logo parisino.Png" alt="Parisino Logo">
+        <div class="banner-container">
+            <img src="Portada Parisino.Png" alt="Parisino Moda y Hogar">
+        </div>
     </header>
 
     <main>
-        <div class="banner">
-            <img src="Portada Parisino.Png" alt="Parisino Banner Moda y Hogar">
-        </div>
-        <div class="content">
-            <h1>Bienvenidos a Parisino</h1>
-            <p>Estilo, tendencia y hogar en un solo lugar. Encuentra moda para él y ella, y los mejores accesorios para inspirar tu día a día.</p>
+        <h1>EL EQUILIBRIO PERFECTO</h1>
+        <p class="subtitle">Descubre en Parisino una cuidada selección de moda para él y ella, junto con accesorios exclusivos para transformar tu hogar en un espacio lleno de inspiración.</p>
+        
+        <div class="categories" id="colecciones">
+            <div class="category-card">
+                <h3>Moda Femenina</h3>
+                <p>Tendencias actuales, comodidad y elegancia para tu día a día.</p>
+            </div>
+            <div class="category-card">
+                <h3>Moda Masculina</h3>
+                <p>Estilo versátil y atemporal con la mejor calidad.</p>
+            </div>
+            <div class="category-card">
+                <h3>Hogar y Decoración</h3>
+                <p>Detalles únicos que le darán personalidad a cada rincón de tu casa.</p>
+            </div>
         </div>
     </main>
 
     <footer>
-        <div class="legal-info">
-            <strong>Información Legal y Corporativa</strong><br>
-            PROMOTORA SAN FERNANDO CALI S A S<br>
-            NIT: 900626786-2<br>
-            CL 32 NORTE # 24 - 504 CS 2, Cali - Valle<br>
-            Tel: 3042325507<br>
-            Correo: <a href="mailto:soporte@parisino.online" style="color: #ccc;">soporte@parisino.online</a>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>ATENCIÓN AL CLIENTE</h4>
+                <ul>
+                    <li><a href="mailto:soporte@parisino.online">Contacto: soporte@parisino.online</a></li>
+                    <li>Teléfono: +57 3042325507</li>
+                    <li>Horario: Lunes a Sábado, 8am - 6pm</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>LEGAL</h4>
+                <ul>
+                    <li><a href="politicas-privacidad.html">Políticas de Privacidad</a></li>
+                    <li><a href="terminos-condiciones.html">Términos y Condiciones</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>UBICACIÓN</h4>
+                <ul>
+                    <li>CL 32 NORTE # 24 - 504 CS 2</li>
+                    <li>Cali, Valle del Cauca</li>
+                    <li>Colombia</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="legal-footer">
+            <strong>Información Legal y Corporativa oficial registrada en Cámara de Comercio</strong>
+            PROMOTORA SAN FERNANDO CALI S A S | NIT: 900626786-2 <br>
+            Dirección Legal: CL 32 NORTE # 24 - 504 CS 2, Cali - Valle <br>
+            Correo Oficial: soporte@parisino.online | Teléfono Oficial: 3042325507<br><br>
+            &copy; 2026 Parisino. Todos los derechos reservados.
         </div>
     </footer>
 
